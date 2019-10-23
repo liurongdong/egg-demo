@@ -14,5 +14,9 @@ module.exports = {
   validate: {
     enable: true,
     package: "egg-validate"
+  },
+  jwt: {
+    enable: true,
+    package: "egg-jwt"
   }
 };

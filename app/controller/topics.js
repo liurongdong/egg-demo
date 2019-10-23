@@ -17,6 +17,13 @@ class TopicController extends Controller {
     ctx.status = 201;
     console.log("topic Ctx");
   }
+  async new() {
+    const ctx = this.ctx;
+    ctx.body = {
+      new: "232"
+    };
+    ctx.status = 200;
+  }
 }
 
 module.exports = TopicController;

@@ -16,7 +16,7 @@ module.exports = appInfo => {
   config.keys = appInfo.name + "_1571473642294_1132";
 
   // add your middleware config here
-  config.middleware = ["errorHandler"];
+  config.middleware = ["checkToken", "errorHandler"];
   // 只对 /api 前缀的 url 路径生效
   config.errorHandler = {
     match: "/api"
@@ -51,6 +51,15 @@ module.exports = appInfo => {
     agent: false
   };
 
+  //jwt 私有key
+
+  config.jwt = {
+    secret: "1234567890"
+  };
+  //关闭csrf  跨站伪造请求
+  config.security = {
+    csrf: false
+  };
   return {
     ...config,
     ...userConfig
