@@ -3,18 +3,20 @@
  */
 module.exports = (options, app) => {
   return async function auth(ctx, next) {
-    console.log("是否来校验Token");
+    console.log(ctx.path);
 
-    if (ctx.path == "/" || ctx.path == "/login") {
+    if (ctx.path == "/" || ctx.path == "/api/login") {
       await next();
     } else {
       let payload;
-      const token = ctx.headers.authorization;
+      const token = ctx.headers.Authorization;
       if (token) {
         //验证token
-        // console.log(ctx.app);
+        console.log(ctx);
         payload = await ctx.app.jwt.verify(token, ctx.app.jwt.secret);
+        //  验证用户信息 并且更新token
         console.log(payload);
+
         await next();
         console.log("是否回来");
       } else {

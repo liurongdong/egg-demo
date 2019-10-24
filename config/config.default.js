@@ -60,6 +60,10 @@ module.exports = appInfo => {
   config.security = {
     csrf: false
   };
+  config.cors = {
+    origin: "*",
+    allowMethods: "GET,HEAD,PUT,POST,DELETE,PATCH,OPTIONS"
+  };
   return {
     ...config,
     ...userConfig

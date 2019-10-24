@@ -11,6 +11,7 @@ class HomeController extends Controller {
     console.log("LOGIN  IN   ");
     const { ctx } = this;
     const token = ctx.app.jwt.sign("liuuu", ctx.app.jwt.secret, { expiresIn: "1h" }); //token签名 有效期为1小时
+    ctx.cookies.set("token", token);
     ctx.body = {
       token
     };
