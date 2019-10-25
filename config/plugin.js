@@ -22,5 +22,14 @@ module.exports = {
   cors: {
     enable: true,
     package: "egg-cors"
+  },
+  //鉴权，
+  passport: {
+    enable: true,
+    package: "egg-passport"
+  },
+  passportLocal: {
+    enable: true,
+    package: "egg-passport-local"
   }
 };

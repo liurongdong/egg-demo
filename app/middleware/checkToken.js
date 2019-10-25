@@ -5,7 +5,7 @@ module.exports = (options, app) => {
   return async function auth(ctx, next) {
     console.log(ctx.path);
 
-    if (ctx.path == "/" || ctx.path == "/api/login") {
+    if (ctx.path == "/" || ctx.path == "/api/login" || ctx.path == "/authCallback") {
       await next();
     } else {
       let payload;
