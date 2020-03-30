@@ -6,7 +6,10 @@
 module.exports = app => {
   const { router, controller } = app
   console.log(app.router.resources)
-  router.get("/", controller.swagger.index)
+  const apiV1Router = router.namespace("/api/v1")
+  apiV1Router.get("/", controller.swagger.index)
+  apiV1Router.get("/aaa", controller.swagger.index)
+  apiV1Router.get("/login/codeLogin", controller.login.index)
   // router.post(
   //   "/api/login",
   //   app.passport.authenticate("local", { successRedirect: "/authCallback", failureRedirect: "/login/fail" }),

@@ -40,5 +40,10 @@ module.exports = {
   passportLocal: {
     enable: true,
     package: "egg-passport-local"
+  },
+  // 路由插件
+  routerPlus: {
+    enable: true,
+    package: "egg-router-plus"
   }
 }

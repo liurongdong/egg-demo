@@ -16,15 +16,16 @@ module.exports = appInfo => {
   config.keys = appInfo.name + "_1571473642294_1132"
 
   // add your middleware config here
-  config.middleware = ["checkToken", "errorHandler"]
+  config.middleware = ["errorHandler", "auth"]
+  // 不需要验证TOKEN的路由
+  config.auth = {
+    allowed: ["/api/v1/login/codeLogin"]
+  }
   // 只对 /api 前缀的 url 路径生效
   config.errorHandler = {
     match: "/api"
   }
-  // 只对 /api 前缀的 url 路径生效
-  config.checkToken = {
-    match: "/api"
-  }
+
   // add your user config here
   const userConfig = {
     // myAppName: 'egg',
@@ -53,8 +54,8 @@ module.exports = appInfo => {
   config.swaggerdoc = {
     dirScanner: "./app/controller",
     apiInfo: {
-      title: "egg-swagger",
-      description: "swagger-ui for egg",
+      title: "lrd小程序后台",
+      description: "来自伟大的DG",
       version: "1.0.0"
     },
     schemes: ["http", "https"],
