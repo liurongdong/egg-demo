@@ -1,10 +1,10 @@
 // app.js
-const LocalStrategy = require("passport-local").Strategy;
+const LocalStrategy = require("passport-local").Strategy
 
 // app.js
 module.exports = app => {
   // 挂载 strategy
-  console.log("是否进入app.ja");
+  console.log("是否进入app.ja")
 
   module.exports = app => {
     // 挂载 strategy
@@ -19,16 +19,16 @@ module.exports = app => {
             provider: "local",
             username,
             password
-          };
-          debug("%s %s get user: %j", req.method, req.url, user);
-          app.passport.doVerify(req, user, done);
+          }
+          debug("%s %s get user: %j", req.method, req.url, user)
+          app.passport.doVerify(req, user, done)
         }
       )
-    );
+    )
 
     // 处理用户信息
-    app.passport.verify(async (ctx, user) => {});
-    app.passport.serializeUser(async (ctx, user) => {});
-    app.passport.deserializeUser(async (ctx, user) => {});
-  };
-};
+    app.passport.verify(async (ctx, user) => {})
+    app.passport.serializeUser(async (ctx, user) => {})
+    app.passport.deserializeUser(async (ctx, user) => {})
+  }
+}

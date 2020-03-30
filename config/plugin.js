@@ -1,4 +1,4 @@
-"use strict";
+"use strict"
 
 /** @type Egg.EggPlugin */
 module.exports = {
@@ -9,7 +9,16 @@ module.exports = {
   // 数据库
   mysql: {
     enable: true,
-    packages: "egg-mysql"
+    package: "egg-mysql"
+  },
+  sequelize: {
+    enable: true,
+    package: "egg-sequelize"
+  },
+  // 配置 egg-swagger-doc 插件信息。
+  swaggerdoc: {
+    enable: true, // 是否启用。
+    package: "egg-swagger-doc" // 指定包名称。
   },
   validate: {
     enable: true,
@@ -32,4 +41,4 @@ module.exports = {
     enable: true,
     package: "egg-passport-local"
   }
-};
+}

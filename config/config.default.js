@@ -1,6 +1,6 @@
 /* eslint valid-jsdoc: "off" */
 
-"use strict";
+"use strict"
 
 /**
  * @param {Egg.EggAppInfo} appInfo app info
@@ -10,17 +10,21 @@ module.exports = appInfo => {
    * built-in config
    * @type {Egg.EggAppConfig}
    **/
-  const config = (exports = {});
+  const config = (exports = {})
 
   // use for cookie sign key, should change to your own and keep security
-  config.keys = appInfo.name + "_1571473642294_1132";
+  config.keys = appInfo.name + "_1571473642294_1132"
 
   // add your middleware config here
-  config.middleware = ["checkToken", "errorHandler"];
+  config.middleware = ["checkToken", "errorHandler"]
   // 只对 /api 前缀的 url 路径生效
   config.errorHandler = {
     match: "/api"
-  };
+  }
+  // 只对 /api 前缀的 url 路径生效
+  config.checkToken = {
+    match: "/api"
+  }
   // add your user config here
   const userConfig = {
     // myAppName: 'egg',
@@ -28,44 +32,71 @@ module.exports = appInfo => {
       pageSize: 5,
       serverUrl: "https://hacker-news.firebaseio.com/v0"
     }
-  };
+  }
 
   // config/config.${env}.js
-  config.mysql = {
-    // 单数据库信息配置
-    client: {
-      // host
-      host: "120.78.94.206",
-      // 端口号
-      port: "3306",
-      // 用户名
-      user: "liuuu",
-      // 密码
-      password: "cCGjtXtLjr",
-      // 数据库名
-      database: "my_table"
+  config.sequelize = {
+    dialect: "mysql",
+    host: "120.78.94.206",
+    port: 3306,
+    username: "liuuu",
+    password: "cCGjtXtLjr",
+    database: "liuuu",
+    define: {
+      freezeTableName: true, // Model 对应的表名将与model名相同。
+      timestamps: false // 默认情况下，Sequelize会将createdAt和updatedAt的属性添加到模型中，以便您可以知道数据库条目何时进入数据库以及何时被更新（ 确实是太方便了，然而我们一般用不到 ....）。
+    }
+  }
+
+  // egg-swagger-doc 配置信息。
+
+  config.swaggerdoc = {
+    dirScanner: "./app/controller",
+    apiInfo: {
+      title: "egg-swagger",
+      description: "swagger-ui for egg",
+      version: "1.0.0"
     },
-    // 是否加载到 app 上，默认开启
-    app: true,
-    // 是否加载到 agent 上，默认关闭
-    agent: false
-  };
+    schemes: ["http", "https"],
+    consumes: ["application/json"],
+    produces: ["application/json"],
+    securityDefinitions: {
+      // apikey: {
+      //   type: 'apiKey',
+      //   name: 'clientkey',
+      //   in: 'header',
+      // },
+      // oauth2: {
+      //   type: 'oauth2',
+      //   tokenUrl: 'http://petstore.swagger.io/oauth/dialog',
+      //   flow: 'password',
+      //   scopes: {
+      //     'write:access_token': 'write access_token',
+      //     'read:access_token': 'read access_token',
+      //   },
+      // },
+    },
+    enableSecurity: false,
+    // enableValidate: true,
+    routerMap: false,
+    enable: true
+  }
 
   //jwt 私有key
 
   config.jwt = {
     secret: "1234567890"
-  };
+  }
   //关闭csrf  跨站伪造请求
   config.security = {
     csrf: false
-  };
+  }
   config.cors = {
     origin: "*",
     allowMethods: "GET,HEAD,PUT,POST,DELETE,PATCH,OPTIONS"
-  };
+  }
   return {
     ...config,
     ...userConfig
-  };
-};
+  }
+}
