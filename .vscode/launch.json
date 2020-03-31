@@ -15,6 +15,22 @@
       "request": "launch",
       "name": "启动程序",
       "program": "/app/controller/home.js"
+    },
+    {
+      "name": "Launch Egg",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceRoot}",
+      "runtimeExecutable": "npm",
+      "windows": {
+        "runtimeExecutable": "npm.cmd"
+      },
+      "runtimeArgs": ["run", "debug"],
+      "console": "integratedTerminal",
+      "protocol": "auto",
+      "restart": true,
+      "port": 9229,
+      "autoAttachChildProcesses": true
     }
   ]
 }
