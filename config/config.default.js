@@ -84,13 +84,17 @@ module.exports = appInfo => {
   }
 
   //jwt 私有key
-
   config.jwt = {
     secret: "1234567890"
   }
   //关闭csrf  跨站伪造请求
   config.security = {
     csrf: false
+  }
+  // 小程序相关
+  config.wechatConfig = {
+    secret: "0b37835038fa4a9d880908c4496a6f65",
+    appid: "wxaf459495989c1b6f"
   }
   config.cors = {
     origin: "*",
