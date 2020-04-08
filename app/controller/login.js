@@ -16,27 +16,11 @@ class LoginController extends Controller {
   async index() {
     let { ctx, app } = this
     let code = ctx.request.body.code
-    let res = await ctx.curl(
-      "https://api.weixin.qq.com/sns/jscode2session?appid=" +
-        app.config.wechatConfig.appid +
-        "&secret=" +
-        app.config.wechatConfig.secret +
-        "&js_code=" +
-        code +
-        "&grant_type=authorization_code",
-      {
-        dataType: "json"
-      }
-    )
+    let result = await ctx.service.login.codeLogin(code)
 
-    console.log(res)
-
-    let data = {
-      name: "nihai"
-    }
-    ctx.logger.info(ctx.request.body.code)
+    ctx.logger.info(result)
     // this.logger.info("use")
-    // ctx.returnBody("请求成功!", 1, 200, data)
+    ctx.returnBody("请求成功!", 1, 200, result)
   }
 }
 

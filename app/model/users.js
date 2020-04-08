@@ -14,6 +14,10 @@ module.exports = app => {
       type: DataTypes.STRING(30),
       allowNull: true
     },
+    openid: {
+      type: DataTypes.STRING(30),
+      allowNull: false
+    },
     age: {
       type: DataTypes.INTEGER(11),
       allowNull: true
