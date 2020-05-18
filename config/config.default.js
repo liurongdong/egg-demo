@@ -19,7 +19,7 @@ module.exports = appInfo => {
   config.middleware = ["errorHandler", "auth"]
   // 不需要验证TOKEN的路由
   config.auth = {
-    allowed: ["/api/v1/login/codeLogin"]
+    allowed: ["/api/v1/login/codeLogin", '/api/v2']
   }
   // 只对 /api 前缀的 url 路径生效
   config.errorHandler = {
@@ -38,10 +38,10 @@ module.exports = appInfo => {
   // config/config.${env}.js
   config.sequelize = {
     dialect: "mysql",
-    host: "120.78.94.206",
+    host: "47.97.201.129",
     port: 3306,
     username: "liuuu",
-    password: "cCGjtXtLjr",
+    password: "lrd6274...",
     database: "liuuu",
     define: {
       freezeTableName: true, // Model 对应的表名将与model名相同。
@@ -100,6 +100,9 @@ module.exports = appInfo => {
     origin: "*",
     allowMethods: "GET,HEAD,PUT,POST,DELETE,PATCH,OPTIONS"
   }
+  config.logger = {
+    outputJSON: true,
+  };
   return {
     ...config,
     ...userConfig
