@@ -1,7 +1,7 @@
 /* eslint valid-jsdoc: "off" */
 
 "use strict"
-
+const errors = require('egg-errors')
 /**
  * @param {Egg.EggAppInfo} appInfo app info
  */
@@ -16,7 +16,7 @@ module.exports = appInfo => {
   config.keys = appInfo.name + "_1571473642294_1132"
 
   // add your middleware config here
-  config.middleware = ["errorHandler", "auth"]
+  config.middleware = ["auth","errorHandler"]
   // 不需要验证TOKEN的路由
   config.auth = {
     allowed: ["/api/v1/login/codeLogin", '/api/v2']
@@ -25,7 +25,25 @@ module.exports = appInfo => {
   config.errorHandler = {
     match: "/api"
   }
-
+ 
+  config.eggErrors = {
+    continue: { code: 100, message: 'Continue' },
+    ok: { code: 200, message: 'OK' },
+    created: { code: 201, message: 'Created' },
+    noContent: { code: 204, message: 'No Content' },
+    movedPermanently: { code: 301, message: 'Moved Permanently' },
+    found: { code: 302, message: 'Found' },
+    notModified: { code: 304, message: 'Not Modified' },
+    badRequest: { code: 400, message: 'Bad Request', error: errors.E400 },
+    unauthorized: { code: 401, message: 'Unauthorized', error: errors.E401 },
+    forbidden: { code: 403, message: 'Forbidden', error: errors.E403 },
+    notFound: { code: 404, message: 'Not Found', error: errors.E404 },
+    conflict: { code: 409, message: 'Conflict', error: errors.E409 },
+    unprocessable: { code: 422, message: 'Unprocessable Entity', error: errors.E422 },
+    serverError: { code: 500, message: 'serverError', error: errors.E500 },
+    otherServerError: { code: 502, message: 'Bad Gateway', error: errors.E502 },
+    errors,
+  }
   // add your user config here
   const userConfig = {
     // myAppName: 'egg',

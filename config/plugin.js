@@ -11,6 +11,11 @@ module.exports = {
     enable: true,
     package: "egg-mysql"
   },
+
+  eggErrors: {
+    enable: true,
+    package: "egg-errors"
+  },
   sequelize: {
     enable: true,
     package: "egg-sequelize"
@@ -41,9 +46,11 @@ module.exports = {
     enable: true,
     package: "egg-passport-local"
   },
-  // 路由插件
+  // 路由插件 
+  // TODO: 目前用不到
   routerPlus: {
     enable: true,
     package: "egg-router-plus"
   }
+ 
 }

@@ -5,7 +5,7 @@
  */
 module.exports = app => {
   const { router, controller } = app
-  console.log(app.router.resources)
+  
   const apiV1Router = router.namespace("/api/v1")
   apiV1Router.post("/login/codeLogin", controller.login.index)
   // router.post(

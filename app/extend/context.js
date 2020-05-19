@@ -24,7 +24,8 @@ module.exports = {
     this.response.body = {
       data,
       msg: message,
-      code: code
+      code: code,
+      status: code == '0'?'fail':'success'
     }
   },
 

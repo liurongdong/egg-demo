@@ -9,7 +9,10 @@
   "dependencies": {
     "crypto-js": "^4.0.0",
     "egg": "^2.15.1",
+    "egg-aop": "^0.5.3",
+    "egg-controller": "^0.3.40",
     "egg-cors": "^2.2.1",
+    "egg-errors": "^2.1.1",
     "egg-jwt": "^3.1.6",
     "egg-mysql": "^3.0.0",
     "egg-passport": "^2.1.0",
@@ -48,7 +51,7 @@
     "lint": "eslint .",
     "ci": "npm run lint && npm run cov",
     "autod": "autod",
-    "dbload": "sequelize-auto -o ./app/model -h 120.78.94.206 -p 3306 -d liuuu -u liuuu -x cCGjtXtLjr"
+    "dbload": "sequelize-auto -o ./app/model -h 47.97.201.129 -p 3306 -d liuuu -u liuuu -x lrd6274..."
   },
   "ci": {
     "version": "10"
