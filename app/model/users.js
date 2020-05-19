@@ -5,29 +5,29 @@ module.exports = app => {
 
   const Model = app.model.define('users', {
     id: {
-      type: DataTypes.INTEGER(11),
+      type: DataTypes.INTEGER(11).UNSIGNED,
       allowNull: false,
       primaryKey: true,
       autoIncrement: true
     },
-    name: {
-      type: DataTypes.STRING(30),
+    openId: {
+      type: DataTypes.STRING(0),
       allowNull: true
     },
-    openid: {
-      type: DataTypes.STRING(30),
-      allowNull: false
+    name: {
+      type: DataTypes.STRING(255),
+      allowNull: true
     },
     age: {
       type: DataTypes.INTEGER(11),
       allowNull: true
     },
-    created_at: {
-      type: DataTypes.DATE,
+    sex: {
+      type: DataTypes.STRING(255),
       allowNull: true
     },
-    updated_at: {
-      type: DataTypes.DATE,
+    phone: {
+      type: DataTypes.STRING(255),
       allowNull: true
     }
   }, {
