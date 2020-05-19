@@ -10,8 +10,8 @@ module.exports = app => {
       primaryKey: true,
       autoIncrement: true
     },
-    openId: {
-      type: DataTypes.STRING(0),
+    openid: {
+      type: DataTypes.STRING(255),
       allowNull: true
     },
     name: {

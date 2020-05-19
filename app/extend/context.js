@@ -4,7 +4,7 @@ const Cryptojs = require("crypto-js")
 
 module.exports = {
   // this 就是 ctx 对象，在其中可以调用 ctx 上的其他方法，或访问属性
-  
+
   get jwt() {
     return this.app.jwt
   },
@@ -22,14 +22,14 @@ module.exports = {
   returnBody(message, code, status, data = {}) {
     this.status = status
     this.response.body = {
-      data,
       msg: message,
       code: code,
-      status: code == '0'?'fail':'success'
+      status: code == "0" ? "fail" : "success",
+      data,
     }
   },
 
   crypto(value) {
     return Cryptojs.HmacSHA256(value, "drw_admin888").toString()
-  }
+  },
 }
