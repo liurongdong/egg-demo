@@ -63,7 +63,7 @@ module.exports = appInfo => {
     database: "liuuu",
     define: {
       freezeTableName: true, // Model 对应的表名将与model名相同。
-      timestamps: false // 默认情况下，Sequelize会将createdAt和updatedAt的属性添加到模型中，以便您可以知道数据库条目何时进入数据库以及何时被更新（ 确实是太方便了，然而我们一般用不到 ....）。
+      timestamps: true // 默认情况下，Sequelize会将createdAt和updatedAt的属性添加到模型中，以便您可以知道数据库条目何时进入数据库以及何时被更新（ 确实是太方便了，然而我们一般用不到 ....）。
     }
   }
 
@@ -120,6 +120,13 @@ module.exports = appInfo => {
   }
   config.logger = {
     outputJSON: true,
+  }
+  config.session = {
+    key: 'EGG_SESS', // 承载 Session 的 Cookie 键值对名字
+    maxAge: 86400000, // Session 的最大有效时间
+  };
+  config.redis = {
+    // your redis configurations
   };
   return {
     ...config,

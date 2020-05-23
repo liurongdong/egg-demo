@@ -1,34 +1,34 @@
 /* jshint indent: 2 */
 
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('users', {
+  return sequelize.define('Use2rs', {
     id: {
-      type: DataTypes.INTEGER(11).UNSIGNED,
+      type: DataTypes.INTEGER(11),
       allowNull: false,
       primaryKey: true,
       autoIncrement: true
     },
-    openid: {
+    firstName: {
       type: DataTypes.STRING(255),
       allowNull: true
     },
-    name: {
+    lastName: {
       type: DataTypes.STRING(255),
       allowNull: true
     },
-    age: {
-      type: DataTypes.INTEGER(11),
-      allowNull: true
-    },
-    sex: {
+    email: {
       type: DataTypes.STRING(255),
       allowNull: true
     },
-    phone: {
-      type: DataTypes.STRING(255),
-      allowNull: true
+    createdAt: {
+      type: DataTypes.DATE,
+      allowNull: false
+    },
+    updatedAt: {
+      type: DataTypes.DATE,
+      allowNull: false
     }
   }, {
-    tableName: 'users'
+    tableName: 'Use2rs'
   });
 };

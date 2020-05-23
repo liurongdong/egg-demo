@@ -17,11 +17,21 @@ class LoginController extends Controller {
     let code = ctx.request.body.code
     ctx.logger.info("some request data: %j", ctx.request.body)
     console.log("%c log===>", "background: Aquamarine; font-size: 20px;", code)
+   
+    try{
+      ctx.validate({
+        code: { type: 'number' }
+      })
+    
+    }catch(e){
+      //TODO handle the exception
+      ctx.returnBody("参数校验错误!", 0, 200, e)
+      return
+    }
     let result = await ctx.service.login.codeLogin(code)
-
     ctx.logger.info(result)
-    // this.logger.info("use")
     ctx.returnBody("请求成功!", 1, 200, result)
+    // this.logger.info("use")
   }
 }
 

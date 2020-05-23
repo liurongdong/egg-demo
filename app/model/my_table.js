@@ -1,9 +1,7 @@
-/* indent size: 2 */
+/* jshint indent: 2 */
 
-module.exports = app => {
-  const DataTypes = app.Sequelize;
-
-  const Model = app.model.define('my_table', {
+module.exports = function(sequelize, DataTypes) {
+  return sequelize.define('my_table', {
     name: {
       type: DataTypes.STRING(255),
       allowNull: true
@@ -20,10 +18,4 @@ module.exports = app => {
   }, {
     tableName: 'my_table'
   });
-
-  Model.associate = function() {
-
-  }
-
-  return Model;
 };

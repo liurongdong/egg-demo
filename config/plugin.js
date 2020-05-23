@@ -46,11 +46,19 @@ module.exports = {
     enable: true,
     package: "egg-passport-local"
   },
+  session: {
+    enable: true,
+    package: "egg-session"
+  },
   // 路由插件 
   // TODO: 目前用不到
   routerPlus: {
     enable: true,
     package: "egg-router-plus"
+  },
+  redis: {
+    enable: true,
+    package: 'egg-redis',
   }
  
 }
